@@ -2,7 +2,7 @@ const concurrently = require('concurrently');
 const Randoma = require('randoma');
 const { green, red } = require('chalk');
 
-const random = new Randoma({ seed: 10 });
+const random = new Randoma({ seed: Math.ceil(Math.random() * 10, 10) });
 const { microfrontends } = require('../../../package.json');
 
 const getConfig = (command) => (mfe) => ({
