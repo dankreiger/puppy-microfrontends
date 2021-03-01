@@ -1,6 +1,7 @@
 const concurrently = require('concurrently');
 const Randoma = require('randoma');
 const { green, red } = require('chalk');
+const { scope } = require('minimist')(process.argv.slice(2));
 
 const random = new Randoma({ seed: Math.ceil(Math.random() * 10, 10) });
 const { microfrontends } = require('../../../package.json');
@@ -11,9 +12,19 @@ const getConfig = (command) => (mfe) => ({
   prefixColor: random.color(0.5).hex().toString(),
 });
 
-const concurrentProcesses = (command) => microfrontends.map(getConfig(command));
+const filterIfArgs = (list) => {
+  if (scope) {
+    const mfeList = scope.replace(/\s+/g, '').split(',');
+    return list.filter((mfe) => mfeList.includes(mfe));
+  }
 
-const getNPMCommand = (command) => {
+  return list;
+};
+
+const concurrentProcesses = (command) =>
+  filterIfArgs(microfrontends).map(getConfig(command));
+
+const getNPMCommand = (command) =>
   concurrently(concurrentProcesses(command)).then(
     ([
       {
@@ -26,6 +37,5 @@ const getNPMCommand = (command) => {
       },
     ]) => console.log(red(`${name}: ${command} error`))
   );
-};
 
 module.exports = getNPMCommand;

@@ -12,6 +12,7 @@
   "author": "",
   "main": "index.js",
   "scripts": {
+    "add": "scripty",
     "clean": "scripty",
     "postinstall": "scripty",
     "sort": "scripty",

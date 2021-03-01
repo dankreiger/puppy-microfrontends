@@ -2,12 +2,10 @@
 const fs = require('fs');
 const { green } = require('chalk');
 const sortPackageJson = require('sort-package-json');
+const getNPMCommand = require('./utils/getNPMCommand');
 const base = 'microfrontends';
-console.log(green('┏━━━ SORT ━━━━━━━\n'));
+const sort = () => {
+  getNPMCommand('npm run sort');
+};
 
-fs.readdir(base, (err, files) => {
-  files.forEach((file) => {
-    const packageJson = require(`../../${base}/${file}/package.json`);
-    sortPackageJson(packageJson);
-  });
-});
+module.exports = sort();
