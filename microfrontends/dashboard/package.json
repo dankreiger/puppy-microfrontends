@@ -9,7 +9,8 @@
   "license": "MIT",
   "scripts": {
     "clean": "scripty",
-    "start": "echo \"TODO\""
+    "build": "webpack --config config/webpack.prod.js",
+    "start": "webpack serve --config config/webpack.dev.js"
   },
   "dependencies": {
     "chart.js": "2.9.4",

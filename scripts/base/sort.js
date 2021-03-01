@@ -7,7 +7,7 @@ console.log(green('┏━━━ SORT ━━━━━━━\n'));
 
 fs.readdir(base, (err, files) => {
   files.forEach((file) => {
-    const packageJson = require(`../${base}/${file}/package.json`);
+    const packageJson = require(`../../${base}/${file}/package.json`);
     sortPackageJson(packageJson);
   });
 });
