@@ -48,7 +48,6 @@ ex. add ramda microfrontends to `auth` and `container` microfrontends
 npm run add -- ramda --scope=auth,container
 ```
 
-
 ### Add dev dependencies to all microfrontends
 
 ex. add `scripty` and `webpack` to all microfrontends
