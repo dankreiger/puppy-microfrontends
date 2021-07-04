@@ -4,7 +4,7 @@ const { green, red } = require('chalk');
 const { scope } = require('minimist')(process.argv.slice(2));
 
 const random = new Randoma({ seed: Math.ceil(Math.random() * 10, 10) });
-const { microfrontends } = require('../../../package.json');
+const { microfrontends } = require('../../package.json');
 
 const getConfig = (command) => (mfe) => ({
   command: `${command} --prefix microfrontends/${mfe}`,

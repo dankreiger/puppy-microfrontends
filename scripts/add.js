@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 const { green, cyan, yellow } = require('chalk');
 const getNPMCommand = require('./utils/getNPMCommand');
-const { microfrontends } = require('../../package.json');
+const { microfrontends } = require('../package.json');
 
-let { _: depsArr, dev: devDepsString, scope: mfesString } = require('minimist')(
-  process.argv.slice(2)
-);
+let {
+  _: depsArr,
+  dev: devDepsString,
+  scope: mfesString,
+} = require('minimist')(process.argv.slice(2));
 
 const depsString = depsArr.join(', ');
 if (!mfesString) {
