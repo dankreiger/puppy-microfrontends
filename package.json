@@ -34,8 +34,5 @@
     "dashboard",
     "marketing",
     "container"
-  ],
-  "scripty": {
-    "path": "./scripts/base"
-  }
+  ]
 }
